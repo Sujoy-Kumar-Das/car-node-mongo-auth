@@ -5,7 +5,7 @@ const ServiceCard = ({ service }) => {
   // console.log(service)
   const { img, price, title } = service;
   return (
-    <div className="card w-80  glass border-4">
+    <div className="card w-80  glass border-4 hover:shadow-2xl">
       <figure>
         <img
           src={img}
