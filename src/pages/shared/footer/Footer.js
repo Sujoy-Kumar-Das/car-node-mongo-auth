@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.svg'
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-black text-white mt-12 p-24">
+    <footer className="footer p-10 bg-black text-white mt-12 lg:p-24">
       <div>
         <img src={logo} alt="" />
         <p>
