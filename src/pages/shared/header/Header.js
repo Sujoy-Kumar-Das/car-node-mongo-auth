@@ -6,7 +6,7 @@ const Header = () => {
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
         <li><Link to='/services'>Services</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/product'>Product</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
     </>
   return (
@@ -47,7 +47,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <Link className="btn" to={`/login`}>Login</Link>
       </div>
     </div>
   );
