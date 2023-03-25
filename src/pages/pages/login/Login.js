@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import loginImg from "../../../assets/images/login/login.svg";
+import { AuthContextProvider } from '../../../contex/AuthContext/AuthContext';
+import loginImg from '../../../assets/images/login/login.svg'
 const Login = () => {
+    const {loginUser} = useContext(AuthContextProvider)
+    const handleLogin = (event)=>{
+      event.preventDefault();
+      const form = event.target;
+      const email = form.email.value;
+      const password = form.password.value;
+      loginUser(email,password)
+      .then(result => {
+        const user = result.user;
+        console.log(user)
+      })
+      .catch(error=>console.error(error));
+    }
     return (
         <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
@@ -11,7 +25,7 @@ const Login = () => {
           </div>
           <div className="card  w-full max-w-sm shadow-2xl bg-base-100 ">
           <h1 className="text-4xl font-bold text-center pt-5">Login now!</h1>
-            <form className="card-body pb-5">
+            <form onSubmit={handleLogin} className="card-body pb-5">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -48,7 +62,7 @@ const Login = () => {
             <div className="text-center ">
             <p>
                 Don't have account ? please{" "}
-                <Link className=" link link-hover" to="/singup">
+                <Link className=" link link-hover text-red-700" to="/singup">
                   register now
                 </Link>
               </p>
